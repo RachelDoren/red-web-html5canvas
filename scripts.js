@@ -26,24 +26,30 @@ var c = canvas.getContext("2d");
 
 // // Arc / Circle [order is important]
 // for (var i =0; i < 3; i++) {
-// 	var x = Math.random() * window.innerWidth;
-// 	var y = Math.random() * window.innerHeight;
-// 	var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
-// 	c.beginPath(); //separates circle from other shapes
-// 	c.arc(x, y, 30, 0, 2 * Math.PI, false);
-// 	c.fillStyle = hue;
-// 	c.fill();
-// 	c.strokeStyle = hue;
-// 	c.stroke();
+//  var x = Math.random() * window.innerWidth;
+//  var y = Math.random() * window.innerHeight;
+//  var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+//  c.beginPath(); //separates circle from other shapes
+//  c.arc(x, y, 30, 0, 2 * Math.PI, false);
+//  c.fillStyle = hue;
+//  c.fill();
+//  c.strokeStyle = hue;
+//  c.stroke();
 // }
 
-c.beginPath(); 
-c.arc(200, 200, 30, 0, 2 * Math.PI, false);
-c.fillStyle = "red";
-c.fill();
-c.strokeStyle = "red";
-c.stroke();
 
+
+//recursive loop
 function animate() {
-	requestAnimationFrame();
+    requestAnimationFrame(animate);
+    var a = 200 * Math.random();
+    var x = (200 + a)
+    var y = (100 + a)
+    c.beginPath(); 
+    c.arc(x, y, 30, 0, 2 * Math.PI, false);
+    c.fill();
+    c.strokeStyle = "red";
+    c.stroke();
 }
+
+animate();
