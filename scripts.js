@@ -25,10 +25,14 @@ c.strokeStyle = "blue";
 c.stroke();
 
 // Arc / Circle [order is important]
-
-c.beginPath(); //separates circle from other shapes
-c.arc(200, 300, 30, 0, 2 * Math.PI, false);
-c.fillStyle = "yellow";
-c.fill();
-c.strokeStyle = "yellow";
-c.stroke();
+for (var i =0; i < 3; i++) {
+	var x = Math.random() * window.innerWidth;
+	var y = Math.random() * window.innerHeight;
+	var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+	c.beginPath(); //separates circle from other shapes
+	c.arc(x, y, 30, 0, 2 * Math.PI, false);
+	c.fillStyle = hue;
+	c.fill();
+	c.strokeStyle = hue;
+	c.stroke();
+}
