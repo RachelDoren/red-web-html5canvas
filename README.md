@@ -3,3 +3,6 @@ I am following Chris Course's HTML5 Canvas tutorial projects and adding my own c
 
 Watch Chris's HTML5 Canvas tutorial courses here:
 https://www.youtube.com/watch?v=EO6OkltgudE&index=1&list=PLpPnRKq7eNW3We9VdCfx9fprhqXHwTPXL&t=0s
+
+# Custom features I wrote:
+1. Random color generator for circles
