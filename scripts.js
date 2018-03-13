@@ -40,16 +40,23 @@ var c = canvas.getContext("2d");
 
 
 //recursive loop
+var x = 200;
+var dx = 4; //velocity
+
 function animate() {
     requestAnimationFrame(animate);
-    var a = 200 * Math.random();
-    var x = (200 + a)
-    var y = (100 + a)
+    c.clearRect(0, 0, innerWidth, innerHeight);
+
     c.beginPath(); 
-    c.arc(x, y, 30, 0, 2 * Math.PI, false);
+    c.arc(x, 200, 30, 0, 2 * Math.PI, false);
     c.fill();
     c.strokeStyle = "red";
     c.stroke();
+
+    if (x > innerWidth) {
+        dx = -dx;
+    }
+    x+= dx
 }
 
 animate();
