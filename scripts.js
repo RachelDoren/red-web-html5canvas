@@ -42,18 +42,18 @@ var c = canvas.getContext("2d");
 //recursive loop
 var x = 200;
 var dx = 4; //velocity
-
+var radius = 30
 function animate() {
     requestAnimationFrame(animate);
     c.clearRect(0, 0, innerWidth, innerHeight);
 
     c.beginPath(); 
-    c.arc(x, 200, 30, 0, 2 * Math.PI, false);
+    c.arc(x, 200, radius, 0, 2 * Math.PI, false);
     c.fill();
     c.strokeStyle = "red";
     c.stroke();
 
-    if (x > innerWidth) {
+    if (x + radius > innerWidth || x - radius < 0) {
         dx = -dx;
     }
     x+= dx
