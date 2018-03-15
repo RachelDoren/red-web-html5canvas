@@ -41,14 +41,16 @@ var c = canvas.getContext("2d");
 
 //recursive loop
 var x = 200;
+var y = 200;
 var dx = 4; //velocity
+var dy = 4;
 var radius = 30
 function animate() {
     requestAnimationFrame(animate);
     c.clearRect(0, 0, innerWidth, innerHeight);
 
     c.beginPath(); 
-    c.arc(x, 200, radius, 0, 2 * Math.PI, false);
+    c.arc(x, y, radius, 0, 2 * Math.PI, false);
     c.fill();
     c.strokeStyle = "red";
     c.stroke();
@@ -56,7 +58,11 @@ function animate() {
     if (x + radius > innerWidth || x - radius < 0) {
         dx = -dx;
     }
+    if (y + radius > innerHeight || x - radius < 0) {
+        dy = -dy
+    }
     x+= dx
+    y+= dy;
 }
 
 animate();
