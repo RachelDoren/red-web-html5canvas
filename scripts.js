@@ -6,6 +6,7 @@ canvas.height = window.innerHeight;
 
 var c = canvas.getContext("2d");
 
+// // Rectangle
 // c.fillStyle = "rgba(255, 0, 0, 1)";
 // c.fillRect(100, 100, 100, 100)
 // c.fillStyle = "rgba(200, 0, 0, 0.8)";
@@ -37,14 +38,19 @@ var c = canvas.getContext("2d");
 //  c.stroke();
 // }
 
+function Circle(x, y) {
+    this.x = x;
+    this.y = y;
+}
 
 
 //recursive loop
-var x = 200;
-var y = 200;
-var dx = 4; //velocity
-var dy = 4;
-var radius = 30
+var x = Math.random() * innerWidth;
+var y = Math.random() * innerHeight;
+var dx = .5; //velocity
+var dy = .5;
+var radius = 70
+var circleCount = 500
 function animate() {
     requestAnimationFrame(animate);
     c.clearRect(0, 0, innerWidth, innerHeight);
@@ -52,7 +58,7 @@ function animate() {
     c.beginPath(); 
     c.arc(x, y, radius, 0, 2 * Math.PI, false);
     c.fill();
-    c.strokeStyle = "red";
+    c.strokeStyle = "white";
     c.stroke();
 
     if (x + radius > innerWidth || x - radius < 0) {
