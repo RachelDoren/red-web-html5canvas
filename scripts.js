@@ -1,6 +1,5 @@
 var canvas = document.querySelector("canvas");
 
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -22,32 +21,35 @@ function Circle(x, y, dx, dy, radius) {
         }
 
     this.update = function() {
-    if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
-        this.dx = -this.dx;
-    }
-    if (this.y + this.radius > innerHeight || this.x - this.radius < 0) {
-        this.dy = -this.dy
-    }
-    this.x+= this.dx
-    this.y+= this.dy;
+        if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
+            this.dx = -this.dx;
+        }
+        if (this.y + this.radius > innerHeight || this.y - this.radius < 0) {
+            this.dy = -this.dy;
+        }
+        this.x+= this.dx;
+        this.y+= this.dy;
 
-    this.draw();
+        this.draw();
     }
 }
 
-var circle = new Circle(200,200, .5, 1, 70); //instantiate an object
+var circle = new Circle(200, 200, .25, .25, 70); //instantiate an object
+var circle1 = new Circle(100, 50, .25, .3, 70); //instantiate an object
 
 //recursive loop
 var x = Math.random() * innerWidth;
 var y = Math.random() * innerHeight;
-var dx = .5; //velocity
-var dy = .5;
+var dx = .25; //velocity
+var dy = .25;
 var radius = 70
 function animate() {
     requestAnimationFrame(animate);
     c.clearRect(0, 0, innerWidth, innerHeight);
 
     circle.update();
+    circle1.update();
+
 
     c.beginPath(); 
     c.arc(x, y, radius, 0, 2 * Math.PI, false);
@@ -59,9 +61,9 @@ function animate() {
         dx = -dx;
     }
     if (y + radius > innerHeight || x - radius < 0) {
-        dy = -dy
+        dy = -dy;
     }
-    x+= dx
+    x+= dx;
     y+= dy;
 }
 
